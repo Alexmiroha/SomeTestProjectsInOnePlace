@@ -1,16 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const ColorPicker = () => {
+
+    const [color, setColor] = useState('#fff')
+    const [addedColor, setAddedColor] = useState([])
+
+    const handleInput = (e) => {
+        setColor(e.target.value)
+    }
+    const addColor = () => {
+        setAddedColor(color)
+    }
+
     return (
         <div>
             <h2>Choose color, please, to add it to the list</h2>
             <div>
-                <input type="color"/>
-                <input type="text"/>
+                <input type="color" value={color} onChange={handleInput}/>
+                <input type="text" value={color} onChange={handleInput}/>
+                <button onClick={addColor}>add color</button>
             </div>
             <div>
-                color1
-                color2
+                {addedColor}
             </div>
             <div>
                 <input type="checkbox"/>
