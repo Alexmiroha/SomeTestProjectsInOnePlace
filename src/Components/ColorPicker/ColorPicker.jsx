@@ -1,34 +1,27 @@
 import React, {useState} from 'react';
+import ColorAdder from "./ColorAdder/ColorAdder";
+import AddedColors from "./AddedColors/AddedColors";
+import Filter from "./Filter/Filter";
+import Task from "./Task/Task";
 
 const ColorPicker = () => {
 
     const [color, setColor] = useState('#fff')
-    const [addedColor, setAddedColor] = useState([])
+    const [addedColors, setAddedColor] = useState([])
 
     const handleInput = (e) => {
         setColor(e.target.value)
     }
     const addColor = () => {
-        setAddedColor(color)
+        setAddedColor(addedColors => [...addedColors, color])
     }
 
     return (
         <div>
-            <h2>Choose color, please, to add it to the list</h2>
-            <div>
-                <input type="color" value={color} onChange={handleInput}/>
-                <input type="text" value={color} onChange={handleInput}/>
-                <button onClick={addColor}>add color</button>
-            </div>
-            <div>
-                {addedColor}
-            </div>
-            <div>
-                <input type="checkbox"/>
-            </div>
-            <div>
-                <button>task</button>
-            </div>
+            <ColorAdder handleInput={handleInput} color={color} addColor={addColor}/>
+            <AddedColors addedColors={addedColors}/>
+            <Filter/>
+            <Task/>
         </div>
     );
 };
