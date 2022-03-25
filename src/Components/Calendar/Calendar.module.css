@@ -1,0 +1,46 @@
+.calendarWrapper {
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+    background-color: #FFFCFF;
+}
+
+.container {
+    width: 770px;
+}
+
+.weekdays {
+    width: 100%;
+    display: flex;
+    color: #247BA0;
+}
+
+.weekdays div {
+    width: 100px;
+    padding: 10px;
+}
+
+.calendar {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 850px) {
+    .calendarWrapper {
+        transform: scale(0.8);
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .calendarWrapper {
+        transform: scale(0.5);
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .calendarWrapper {
+        transform: scale(0.4);
+    }
+}
